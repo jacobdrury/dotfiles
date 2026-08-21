@@ -1,31 +1,32 @@
-{{- $fontSize := 0 }}
-{{- $windowHeight := 0 }}
-{{- $windowWidth := 0 }}
-{{- $workingDirectory := "" }}
-{{- if eq .chezmoi.hostname "Jacobs-MacBook-Air" }}
-{{-   $fontSize = 14 }}
-{{-   $windowHeight = 20 }}
-{{-   $windowWidth = 110 }}
-{{-   $workingDirectory = "/Users/jacob/Dev" }}
-{{- else if eq .chezmoi.hostname "Pulsar-MacBook-Pro" }}
-{{-   $fontSize = 16 }}
-{{-   $windowHeight = 30 }}
-{{-   $windowWidth = 154 }}
-{{-   $workingDirectory = "/Users/jacobdrury/Dev" }}
-{{- else }}
-{{-   fail (printf "unknown hostname %q — add ghostty settings for it in config.tmpl" .chezmoi.hostname) }}
+{{- $hosts := dict
+      .hosts.air (dict
+        "fontSize" 14
+        "windowHeight" 20
+        "windowWidth" 120
+        "workingDirectory" "/Users/jacob/Dev"
+      )
+      .hosts.pro (dict
+        "fontSize" 16
+        "windowHeight" 30
+        "windowWidth" 154
+        "workingDirectory" "/Users/jacobdrury/Dev"
+      )
+}}
+{{- if not (hasKey $hosts .chezmoi.hostname) -}}
+{{-   fail (printf "unknown hostname %q — add it to the hosts map in config.tmpl" .chezmoi.hostname) }}
 {{- end -}}
+{{- $cfg := index $hosts .chezmoi.hostname -}}
 # Font
-font-size = {{ $fontSize }}
+font-size = {{ $cfg.fontSize }}
 
 # Cursor
 cursor-style-blink = false
 
 # Window
-window-height = {{ $windowHeight }}
-window-width = {{ $windowWidth }}
+window-height = {{ $cfg.windowHeight }}
+window-width = {{ $cfg.windowWidth }}
 window-padding-balance = true
-working-directory = {{ $workingDirectory }}
+working-directory = {{ $cfg.workingDirectory }}
 window-inherit-working-directory = true
 
 # Theme
