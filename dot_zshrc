@@ -1,4 +1,7 @@
+# Editor Settings
 export EDITOR="zed -w"
+export VISUAL="zed -w"
+
 
 # proto
 export PROTO_HOME="$HOME/.proto";
