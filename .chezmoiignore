@@ -1,6 +1,9 @@
 README.md
 dot_config/zed/prompts/
 
+# gh — auth state (may contain oauth tokens)
+.config/gh/hosts.yml
+
 # nvim — generated / local / ephemeral
 .config/nvim/lazy-lock.json
 .config/nvim/doc/tags
