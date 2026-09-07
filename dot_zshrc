@@ -11,3 +11,6 @@ eval "$(proto activate zsh)";
 # Aliases
 alias c="chezmoi"
 alias ce="chezmoi edit"
+
+# Init startship prompt
+eval "$(starship init zsh)"
