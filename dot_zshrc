@@ -12,5 +12,6 @@ eval "$(proto activate zsh)";
 alias c="chezmoi"
 alias ce="chezmoi edit"
 
-# Init startship prompt
+# Init starship prompt
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
