@@ -58,7 +58,7 @@
         },
     },
     "ui_font_family": ".ZedSans",
-    "buffer_font_family": ".ZedMono",
+    "buffer_font_family": "JetBrainsMono Nerd Font",
     "icon_theme": "Material Icon Theme",
     "calls": {
         "mute_on_join": true,

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Bump this to re-install on next chezmoi apply.
+version="v3.5.1"
+url="https://github.com/ryanoasis/nerd-fonts/releases/download/${version}/JetBrainsMono.zip"
+dest="{{ .chezmoi.homeDir }}/Library/Fonts"
+
+mkdir -p "${dest}"
+
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "${tmpdir}"' EXIT
+
+echo "Downloading JetBrainsMono Nerd Font ${version}..."
+curl -fsSL "${url}" -o "${tmpdir}/JetBrainsMono.zip"
+
+unzip -qo "${tmpdir}/JetBrainsMono.zip" -d "${tmpdir}/fonts"
+find "${tmpdir}/fonts" -type f \( -name '*.ttf' -o -name '*.otf' \) -exec cp -f {} "${dest}/" \;
+
+echo "Installed JetBrainsMono Nerd Font ${version} → ${dest}"
