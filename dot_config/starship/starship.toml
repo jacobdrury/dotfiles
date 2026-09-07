@@ -106,6 +106,9 @@ truncation_length = 4
 truncation_symbol = '../'
 truncate_to_repo = false
 read_only = " 󰌾"
+substitutions = {
+    "~/Dev" = "󰅩"
+}
 
 [aws]
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
