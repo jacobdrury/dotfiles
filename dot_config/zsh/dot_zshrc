@@ -67,24 +67,15 @@ source "$ZDOTDIR/plugins.zsh"
 # Prompt/theme
 source "$ZDOTDIR/prompt.zsh"
 
-# proto
-eval "$(proto activate zsh)"
-
-# Aliases
-alias c="chezmoi"
-alias ce="chezmoi edit"
-
-# Init starship prompt
-eval "$(starship init zsh)"
-
 # =========================================================
-# Smart directory navigation & lf
+# Initialize tools
 # =========================================================
-
-# if [[ -f ~/.config/lf/icons ]]; then
-#   LF_ICONS=$(cat ~/.config/lf/icons | tr '\n' ':')
-#   export LF_ICONS
-# fi
 
 # Initialize zoxide
 eval "$(zoxide init zsh)"
+
+# Proto
+eval "$(proto activate zsh)"
+
+# Init starship prompt
+eval "$(starship init zsh)"
