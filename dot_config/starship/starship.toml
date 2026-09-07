@@ -98,6 +98,8 @@ $shell\
 $line_break\
 $character"""
 
+add_newline = false
+
 [fill]
 symbol = " "
 
