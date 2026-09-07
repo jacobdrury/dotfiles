@@ -228,7 +228,7 @@ Windows = "󰍲 "
 Zorin = " "
 
 [package]
-symbol = "󰏗 "
+disable = true
 
 [perl]
 symbol = " "
