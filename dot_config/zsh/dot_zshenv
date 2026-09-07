@@ -7,6 +7,14 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# Ensure dirs used by this config exist (history, completions, PATH, etc.)
+mkdir -p \
+  "$XDG_CONFIG_HOME" \
+  "$XDG_CACHE_HOME/zsh" \
+  "$XDG_DATA_HOME" \
+  "$XDG_STATE_HOME/zsh" \
+  "$HOME/.local/bin"
+
 # ---------- Editor ----------
 # Default editor used by git, crontab, etc.
 export EDITOR="zed -w"
