@@ -1,6 +1,9 @@
 README.md
 dot_config/zed/prompts/
 
+# installed to /etc via run_onchange script (not into $HOME)
+etc/
+
 # gh — auth state (may contain oauth tokens)
 .config/gh/hosts.yml
 

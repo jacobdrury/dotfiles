@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Re-install when the managed file changes.
+# {{ include "private_etc/zshenv" | sha256sum }}
+
+src="{{ .chezmoi.sourceDir }}/private_etc/zshenv"
+dest="/etc/zshenv"
+
+sudo install -m 644 "${src}" "${dest}"
+
+# Remove mistaken path from earlier setup, if present.
+if [[ -f /etc/zsh/zshenv ]]; then
+  sudo rm -f /etc/zsh/zshenv
+  sudo rmdir /etc/zsh 2>/dev/null || true
+fi
+
+echo "Installed ${dest}"
