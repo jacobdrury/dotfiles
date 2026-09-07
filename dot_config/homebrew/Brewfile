@@ -1,0 +1,37 @@
+# =========================================================
+# Required by configs (shell, editor, prompt, etc.)
+# =========================================================
+
+brew "bat"        # cat alias, fzf preview, MANPAGER
+brew "chezmoi"    # this dotfiles manager
+brew "eza"        # ls/ll/la/tree aliases
+brew "fd"         # fzf file listing
+brew "fzf"        # fuzzy finder widgets
+brew "lf"         # file manager function in aliases
+brew "neovim"     # vim alias
+brew "proto"      # toolchain activate in .zshrc
+brew "ripgrep"    # grep alias
+brew "starship"   # prompt
+brew "zoxide"     # cd alias
+cask "zed"        # $EDITOR / $VISUAL
+
+# =========================================================
+# Dev tools
+# =========================================================
+
+brew "gh"         # GitHub CLI (~/.config/gh)
+brew "git"        # newer than system git
+
+# =========================================================
+# Apps
+# =========================================================
+
+cask "1password"
+cask "1password-cli"
+cask "discord"
+cask "ghostty"
+cask "google-chrome"
+cask "raycast"
+cask "rectangle"
+cask "spotify"
+cask "t3-code"

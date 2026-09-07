@@ -1,0 +1,20 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Re-run when the Brewfile changes.
+# {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+
+# Read from source state: this is a `before` script, so ~/.config/homebrew
+# may not exist yet on first apply.
+brewfile="{{ .chezmoi.sourceDir }}/dot_config/homebrew/Brewfile"
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Homebrew is not installed; install it first: https://brew.sh" >&2
+  exit 1
+fi
+
+echo "Running brew bundle from ${brewfile}..."
+brew bundle --file="${brewfile}"
+echo "brew bundle complete."
+{{- end -}}
