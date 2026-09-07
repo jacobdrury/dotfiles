@@ -101,6 +101,11 @@ $character"""
 [fill]
 symbol = " "
 
+[directory]
+truncation_length = 3
+truncation_symbol = '.../'
+read_only = " 󰌾"
+
 [aws]
 format = '[$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 symbol = " "
@@ -164,12 +169,6 @@ symbol = " "
 
 [direnv]
 symbol = " "
-
-[directory]
-truncation_length = 3
-truncation_symbol = '.../'
-truncate_to_repo = false
-read_only = " 󰌾"
 
 [docker_context]
 format = '[$symbol$context]($style) '
