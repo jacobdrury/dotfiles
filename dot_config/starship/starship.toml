@@ -102,8 +102,8 @@ $character"""
 symbol = " "
 
 [directory]
-truncation_length = 3
-truncation_symbol = './'
+truncation_length = 4
+truncation_symbol = '../'
 truncate_to_repo = false
 read_only = " 󰌾"
 
