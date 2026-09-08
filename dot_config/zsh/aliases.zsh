@@ -56,3 +56,9 @@ alias vim='nvim'
 
 alias c="chezmoi"
 alias ce="chezmoi edit"
+
+# =========================================================
+# Kube
+# =========================================================
+alias k="kubectl"
+alias t="talosctl"
