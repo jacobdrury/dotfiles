@@ -14,6 +14,7 @@ brew "ripgrep"    # grep alias
 brew "starship"   # prompt
 brew "zoxide"     # cd alias
 cask "zed"        # $EDITOR / $VISUAL
+brew "direnv"     # direnv
 
 # =========================================================
 # Dev tools
