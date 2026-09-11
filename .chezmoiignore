@@ -1,4 +1,5 @@
 README.md
+AGENTS.md
 dot_config/zed/prompts/
 
 # Repo-local editor settings (not installed into $HOME)
