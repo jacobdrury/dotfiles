@@ -1,6 +1,9 @@
 README.md
 dot_config/zed/prompts/
 
+# Repo-local editor settings (not installed into $HOME)
+.zed/**
+
 # installed to /etc via run_onchange script (not into $HOME)
 etc/
 

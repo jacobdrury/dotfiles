@@ -1,0 +1,11 @@
+{
+  "file_types": {
+    "Shell Script": [
+      "**/*.sh.tmpl",
+      "**/*.zsh.tmpl",
+      "**/dot_zprofile",
+      "**/dot_zshenv",
+      "**/dot_zshrc.tmpl"
+    ]
+  }
+}
