@@ -30,6 +30,10 @@
     "TOML": [
       "**/*.toml.tmpl",
       "**/dot_prototools"
+    ],
+    "YAML": [
+      "**/*.yaml.tmpl",
+      "**/*.yml.tmpl"
     ]
   }
 }
