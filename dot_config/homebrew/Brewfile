@@ -23,6 +23,7 @@ brew "direnv"     # direnv
 
 brew "gh"         # GitHub CLI (~/.config/gh)
 brew "git"        # newer than system git
+cask "codex"      # Codex CLI and T3 Code provider
 
 # =========================================================
 # Apps
