@@ -34,5 +34,19 @@ export GPG_TTY=$(tty)
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # ---------- PATH ----------
-# Personal binaries/scripts
-export PATH="$HOME/.local/bin:$PATH"
+export PROTO_HOME="$HOME/.proto"
+
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+  /opt/homebrew/opt/curl/bin
+  "$PROTO_HOME/shims"
+  "$PROTO_HOME/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/go/bin"
+  "$HOME/.bun/bin"
+  "$HOME/.local/bin"
+  "${path[@]}"
+)
+export PATH
