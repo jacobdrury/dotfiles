@@ -48,8 +48,10 @@ lf() { # zsh follow lf navigation
 # Editor
 # =========================================================
 
+alias vi='nvim'
 alias vim='nvim'
 
+# Git
 alias gsw='git switch'
 
 # =========================================================

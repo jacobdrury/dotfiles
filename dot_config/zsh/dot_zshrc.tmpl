@@ -61,6 +61,11 @@ source "$ZDOTDIR/fzf.zsh"
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
+{{ if eq .chezmoi.hostname .hosts.work_mbp }}
+# Work
+source "$ZDOTDIR/work.zsh"
+{{ end }}
+
 # Custom keybindings
 source "$ZDOTDIR/bindings.zsh"
 
