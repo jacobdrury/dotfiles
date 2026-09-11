@@ -1,3 +1,4 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -61,7 +62,7 @@
     "buffer_font_family": "{{ .appearance.font_family }}",
     "terminal": {
         "font_family": "{{ .appearance.font_family }}",
-        "font_size": {{ index .appearance.font_size .chezmoi.hostname }},
+        "font_size": {{ $host.font_size }},
         "minimum_contrast": 0,
     },
     "icon_theme": "Material Icon Theme",

@@ -1,6 +1,5 @@
-[hosts]
-    air = "Jacobs-MacBook-Air"
-    work_mbp = "Pulsar-MacBook-Pro"
+[git]
+    name = "Jacob Drury"
 
 [appearance]
     theme_name = "Tokyo Night"
@@ -18,7 +17,3 @@
         "#414868", "#f7768e", "#9ece6a", "#e0af68",
         "#7aa2f7", "#bb9af7", "#7dcfff", "#c0caf5",
     ]
-
-[appearance.font_size]
-    Jacobs-MacBook-Air = 14
-    Pulsar-MacBook-Pro = 16

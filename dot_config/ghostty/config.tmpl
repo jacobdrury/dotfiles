@@ -1,31 +1,16 @@
-{{- $hosts := dict
-      .hosts.air (dict
-        "windowHeight" 20
-        "windowWidth" 120
-        "workingDirectory" "/Users/jacob/Dev"
-      )
-      .hosts.work_mbp (dict
-        "windowHeight" 30
-        "windowWidth" 154
-        "workingDirectory" "/Users/jacobdrury/Dev"
-      )
-}}
-{{- if not (hasKey $hosts .chezmoi.hostname) -}}
-{{-   fail (printf "unknown hostname %q — add it to the hosts map in config.tmpl" .chezmoi.hostname) }}
-{{- end -}}
-{{- $cfg := index $hosts .chezmoi.hostname -}}
+{{- $host := index .hosts .chezmoi.hostname -}}
 # Font
 font-family = {{ .appearance.font_family }}
-font-size = {{ index .appearance.font_size .chezmoi.hostname }}
+font-size = {{ $host.font_size }}
 
 # Cursor
 cursor-style-blink = false
 
 # Window
-window-height = {{ $cfg.windowHeight }}
-window-width = {{ $cfg.windowWidth }}
+window-height = {{ $host.ghostty.window_height }}
+window-width = {{ $host.ghostty.window_width }}
 window-padding-balance = true
-working-directory = {{ $cfg.workingDirectory }}
+working-directory = {{ .chezmoi.homeDir }}/Dev
 window-inherit-working-directory = true
 
 # Theme

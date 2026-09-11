@@ -1,10 +1,11 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
 #!/bin/sh
 
 settings="$HOME/.t3/userdata/settings.json"
 client_settings="$HOME/.t3/userdata/client-settings.json"
 theme={{ .appearance.t3_theme | quote }}
 font_family={{ .appearance.font_family | quote }}
-font_size={{ index .appearance.font_size .chezmoi.hostname }}
+font_size={{ $host.font_size }}
 
 set_string() {
   file=$1

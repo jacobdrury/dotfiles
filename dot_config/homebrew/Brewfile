@@ -12,6 +12,7 @@ brew "lf"         # file manager function in aliases
 brew "neovim"     # vim alias
 brew "proto"      # toolchain activate in .zshrc
 brew "ripgrep"    # grep alias
+brew "rtk"        # token-efficient shell proxy for coding agents
 brew "starship"   # prompt
 brew "zoxide"     # cd alias
 cask "zed"        # $EDITOR / $VISUAL
@@ -24,6 +25,7 @@ brew "direnv"     # direnv
 brew "gh"         # GitHub CLI (~/.config/gh)
 brew "git"        # newer than system git
 cask "codex"      # Codex CLI and T3 Code provider
+cask "cursor"     # editor and coding agent
 
 # =========================================================
 # Apps
@@ -32,6 +34,7 @@ cask "codex"      # Codex CLI and T3 Code provider
 cask "1password"
 cask "1password-cli"
 cask "discord"
+cask "docker-desktop"
 cask "ghostty"
 cask "google-chrome"
 cask "raycast"

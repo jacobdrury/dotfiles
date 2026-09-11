@@ -1,10 +1,20 @@
 {
   "file_types": {
+    "Git Config": [
+      "**/dot_gitconfig.tmpl"
+    ],
+    "Git Ignore": [
+      "**/.chezmoiignore",
+      "**/dot_gitignore"
+    ],
     "ini": [
       "**/ghostty/config.tmpl"
     ],
     "JSONC": [
       "**/*.json.tmpl"
+    ],
+    "Markdown": [
+      "**/*.md.tmpl"
     ],
     "Ruby": [
       "**/Brewfile"

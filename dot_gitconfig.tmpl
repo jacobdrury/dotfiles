@@ -1,0 +1,58 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
+{{- $git := $host.git -}}
+[user]
+	name = {{ .git.name }}
+	email = {{ $git.email }}
+{{- with $git.signing_key }}
+	signingkey = {{ . }}
+{{- end }}
+
+{{- if $git.rewrite_gitlab_ssh }}
+
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+{{- end }}
+
+[commit]
+	gpgsign = {{ $git.sign_commits }}
+
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	autosquash = true
+
+[rerere]
+	enabled = true
+
+[diff]
+	context = 3
+	renames = copies
+	interHunkContext = 10
+
+[log]
+	abbrevCommit = true
+	graphColors = blue,yellow,cyan,magenta,green,red
+
+[status]
+	branch = true
+	showStash = true
+	showUntrackedFiles = all
+
+[safe]
+	directory = {{ .chezmoi.homeDir }}/Dev/*
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[sequence]
+	editor = zed --wait --new

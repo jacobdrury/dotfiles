@@ -1,0 +1,13 @@
+[hosts."Pulsar-MacBook-Pro"]
+    is_work = true
+    font_size = 16
+
+[hosts."Pulsar-MacBook-Pro".git]
+    email = "jacob.drury@pulsarinformatics.com"
+    sign_commits = true
+    signing_key = "0EA2BDDA6A30D927"
+    rewrite_gitlab_ssh = true
+
+[hosts."Pulsar-MacBook-Pro".ghostty]
+    window_height = 30
+    window_width = 154

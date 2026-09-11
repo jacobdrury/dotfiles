@@ -1,3 +1,4 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
 # =========================================================
 # History
 # =========================================================
@@ -64,7 +65,7 @@ source "$ZDOTDIR/fzf.zsh"
 # Aliases
 source "$ZDOTDIR/aliases.zsh"
 
-{{ if eq .chezmoi.hostname .hosts.work_mbp }}
+{{ if $host.is_work }}
 # Work
 source "$ZDOTDIR/work.zsh"
 {{ end }}
