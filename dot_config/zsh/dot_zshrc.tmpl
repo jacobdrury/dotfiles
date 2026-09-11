@@ -79,8 +79,8 @@ source "$ZDOTDIR/bindings.zsh"
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Proto
-eval "$(proto activate zsh)"
+# Proto (cached by effective .prototools path)
+source "$ZDOTDIR/proto.zsh"
 
 # Starship
 eval "$(starship init zsh)"
