@@ -1,11 +1,25 @@
 {
   "file_types": {
+    "ini": [
+      "**/ghostty/config.tmpl"
+    ],
+    "JSONC": [
+      "**/*.json.tmpl"
+    ],
+    "Ruby": [
+      "**/Brewfile"
+    ],
     "Shell Script": [
       "**/*.sh.tmpl",
       "**/*.zsh.tmpl",
       "**/dot_zprofile",
       "**/dot_zshenv",
-      "**/dot_zshrc.tmpl"
+      "**/dot_zshrc.tmpl",
+      "**/zshenv"
+    ],
+    "TOML": [
+      "**/*.toml.tmpl",
+      "**/dot_prototools"
     ]
   }
 }

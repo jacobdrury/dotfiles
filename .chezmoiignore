@@ -4,6 +4,9 @@ dot_config/zed/prompts/
 # Repo-local editor settings (not installed into $HOME)
 .zed/**
 
+# Repo-local agent skills (not installed into $HOME)
+.agents/**
+
 # installed to /etc via run_onchange script (not into $HOME)
 etc/
 
