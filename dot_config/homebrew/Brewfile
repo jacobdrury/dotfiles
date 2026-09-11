@@ -4,6 +4,7 @@
 
 brew "bat"        # cat alias, fzf preview, MANPAGER
 brew "chezmoi"    # this dotfiles manager
+brew "curl"       # newer than system curl
 brew "eza"        # ls/ll/la/tree aliases
 brew "fd"         # fzf file listing
 brew "fzf"        # fuzzy finder widgets
