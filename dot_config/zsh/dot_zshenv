@@ -34,6 +34,8 @@ export GPG_TTY=$(tty)
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # ---------- PATH ----------
+# PATH belongs in .zshenv because .zprofile only runs for login shells;
+# embedded terminals also need these tools.
 export PROTO_HOME="$HOME/.proto"
 
 typeset -U path PATH
