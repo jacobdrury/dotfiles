@@ -58,7 +58,12 @@
         },
     },
     "ui_font_family": ".ZedSans",
-    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "buffer_font_family": "{{ .appearance.font_family }}",
+    "terminal": {
+        "font_family": "{{ .appearance.font_family }}",
+        "font_size": {{ index .appearance.font_size .chezmoi.hostname }},
+        "minimum_contrast": 0,
+    },
     "icon_theme": "Material Icon Theme",
     "calls": {
         "mute_on_join": true,
@@ -108,7 +113,7 @@
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "ultraViolet",
+        "dark": "{{ .appearance.zed_theme }}",
     },
     "tabs": {
         "file_icons": true,

@@ -1,0 +1,15 @@
+{
+  "name": "{{ .appearance.theme_name }}",
+  "appearance": "dark",
+  "canvas": "{{ .appearance.background }}",
+  "accent": "{{ index .appearance.ansi 4 }}",
+  "colors": {
+    "terminalBackground": "{{ .appearance.background }}",
+    "terminalForeground": "{{ .appearance.foreground }}",
+    "terminalCursor": "{{ .appearance.cursor }}",
+    "terminalSelection": "{{ .appearance.selection }}",
+    "error": "{{ index .appearance.ansi 1 }}",
+    "warning": "{{ index .appearance.ansi 3 }}",
+    "update": "{{ index .appearance.ansi 2 }}"
+  }
+}

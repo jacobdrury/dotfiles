@@ -1,12 +1,10 @@
 {{- $hosts := dict
       .hosts.air (dict
-        "fontSize" 14
         "windowHeight" 20
         "windowWidth" 120
         "workingDirectory" "/Users/jacob/Dev"
       )
       .hosts.work_mbp (dict
-        "fontSize" 16
         "windowHeight" 30
         "windowWidth" 154
         "workingDirectory" "/Users/jacobdrury/Dev"
@@ -17,8 +15,8 @@
 {{- end -}}
 {{- $cfg := index $hosts .chezmoi.hostname -}}
 # Font
-font-family = JetBrainsMono Nerd Font
-font-size = {{ $cfg.fontSize }}
+font-family = {{ .appearance.font_family }}
+font-size = {{ index .appearance.font_size .chezmoi.hostname }}
 
 # Cursor
 cursor-style-blink = false
@@ -31,7 +29,7 @@ working-directory = {{ $cfg.workingDirectory }}
 window-inherit-working-directory = true
 
 # Theme
-theme = tokyonight
+theme = {{ .appearance.ghostty_theme }}
 
 # MacOS
 macos-titlebar-style = transparent

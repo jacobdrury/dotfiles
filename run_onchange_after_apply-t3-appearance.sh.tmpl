@@ -1,0 +1,25 @@
+#!/bin/sh
+
+settings="$HOME/.t3/userdata/settings.json"
+client_settings="$HOME/.t3/userdata/client-settings.json"
+theme={{ .appearance.t3_theme | quote }}
+font_family={{ .appearance.font_family | quote }}
+font_size={{ index .appearance.font_size .chezmoi.hostname }}
+
+set_string() {
+  file=$1
+  key=$2
+  value=$3
+  plutil -replace "$key" -string "$value" "$file" 2>/dev/null ||
+    plutil -insert "$key" -string "$value" "$file"
+}
+
+if [ -f "$settings" ]; then
+  set_string "$settings" defaultTheme "$theme"
+  set_string "$settings" defaultThemeSetAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+fi
+
+if [ -f "$client_settings" ]; then
+  set_string "$client_settings" fontFamilyTerminal "$font_family"
+  plutil -replace fontSizeTerminal -integer "$font_size" "$client_settings"
+fi

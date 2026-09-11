@@ -1,0 +1,9 @@
+# Keep ANSI-named colors identical across terminal emulators.
+if [[ -o interactive && -t 1 && ${TERM:-dumb} != dumb ]]; then
+{{- range $index, $color := .appearance.ansi }}
+  printf '\e]4;{{ $index }};{{ $color }}\e\\'
+{{- end }}
+  printf '\e]10;{{ .appearance.foreground }}\e\\'
+  printf '\e]11;{{ .appearance.background }}\e\\'
+  printf '\e]12;{{ .appearance.cursor }}\e\\'
+fi
