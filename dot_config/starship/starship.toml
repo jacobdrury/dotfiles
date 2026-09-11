@@ -217,6 +217,10 @@ disabled = false
 format = '[$symbol$context( \($namespace\))]($style) '
 symbol = "󱃾 "
 
+[[kubernetes.contexts]]
+context_pattern = 'arn:aws:eks:(?P<region>[^:]+):[^:]+:cluster/(?P<cluster>.+)'
+context_alias = '$cluster'
+
 [localip]
 disabled = false
 
