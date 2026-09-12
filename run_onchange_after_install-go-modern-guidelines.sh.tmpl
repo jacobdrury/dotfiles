@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Bump this to refresh the marketplace and re-install on next chezmoi apply.
+plugin_version="1.1.1"
+marketplace="goland-codex-marketplace"
+plugin="modern-go-guidelines@${marketplace}"
+
+export PROTO_HOME="{{ .chezmoi.homeDir }}/.proto"
+export PATH="${PROTO_HOME}/shims:${PROTO_HOME}/bin:/opt/homebrew/bin:${PATH}"
+
+# Use the global proto config even when chezmoi is invoked from a project.
+proto install go --config-mode global --yes
+
+if codex plugin marketplace list --json | grep -Fq "\"name\": \"${marketplace}\""; then
+  codex plugin marketplace upgrade "${marketplace}"
+else
+  codex plugin marketplace add JetBrains/go-modern-guidelines
+fi
+
+if codex plugin list --marketplace "${marketplace}" --json |
+  grep -Fq "\"pluginId\": \"${plugin}\""; then
+  codex plugin remove "${plugin}"
+fi
+
+echo "Installing Modern Go Guidelines ${plugin_version}..."
+codex plugin add "${plugin}"
+{{- end -}}
