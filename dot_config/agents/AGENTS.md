@@ -11,6 +11,10 @@ Default to Go when choosing a language. Use another language when the repository
 already uses it, the user requests it, or it is materially better suited to the
 task.
 
+When Modern Go Guidelines produces no applicable change, do not mention it in
+commentary or the final response. Mention it only when its guidance materially
+changes the implementation or the user explicitly asks about it.
+
 ## Shell commands
 
 Use RTK for shell commands. Prefix commands with `rtk` unless an installed RTK
