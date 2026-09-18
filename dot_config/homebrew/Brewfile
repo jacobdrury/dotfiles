@@ -14,6 +14,7 @@ brew "proto"      # toolchain activate in .zshrc
 brew "ripgrep"    # grep alias
 brew "rtk"        # token-efficient shell proxy for coding agents
 brew "starship"   # prompt
+brew "tmux"       # terminal multiplexer (~/.config/tmux)
 brew "zoxide"     # cd alias
 cask "zed"        # $EDITOR / $VISUAL
 brew "direnv"     # direnv
