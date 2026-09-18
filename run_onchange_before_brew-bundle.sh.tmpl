@@ -15,6 +15,6 @@ if ! command -v brew >/dev/null 2>&1; then
 fi
 
 echo "Running brew bundle from ${brewfile}..."
-brew bundle --file="${brewfile}"
+brew bundle --no-upgrade --file="${brewfile}"
 echo "brew bundle complete."
 {{- end -}}

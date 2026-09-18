@@ -26,8 +26,11 @@ On apply, `run_onchange_before_brew-bundle` runs `brew bundle` whenever that fil
 # edit the package list
 ce ~/.config/homebrew/Brewfile
 
-# install/update from the Brewfile (also happens automatically on apply when it changes)
-brew bundle --file=~/.config/homebrew/Brewfile
+# install missing dependencies (also happens automatically on apply when it changes)
+brew bundle --no-upgrade --file=~/.config/homebrew/Brewfile
+
+# explicitly upgrade Brewfile dependencies
+brew bundle upgrade --file=~/.config/homebrew/Brewfile
 ```
 
 JetBrainsMono Nerd Font is installed automatically on apply via a separate `run_onchange_` script.
