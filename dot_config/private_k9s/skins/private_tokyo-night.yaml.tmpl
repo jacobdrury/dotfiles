@@ -13,18 +13,18 @@ white: &white "{{ index .appearance.ansi 7 }}"
 k9s:
   body:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     logoColor: *blue
   prompt:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     suggestColor: *yellow
   info:
     fgColor: *magenta
     sectionColor: *foreground
   dialog:
     fgColor: *foreground
-    bgColor: *background
+    bgColor: default
     buttonFgColor: *background
     buttonBgColor: *blue
     buttonFocusFgColor: *background
@@ -41,7 +41,7 @@ k9s:
       numKeyColor: *cyan
     crumbs:
       fgColor: *foreground
-      bgColor: *selection
+      bgColor: default
       activeColor: *blue
     status:
       newColor: *cyan
@@ -53,13 +53,13 @@ k9s:
       completedColor: *comment
     title:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       highlightColor: *yellow
       counterColor: *magenta
       filterColor: *cyan
   views:
     charts:
-      bgColor: *background
+      bgColor: default
       defaultDialColors:
         - *blue
         - *red
@@ -68,17 +68,17 @@ k9s:
         - *red
     table:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       cursorFgColor: *background
       cursorBgColor: *blue
       markColor: *yellow
       header:
         fgColor: *foreground
-        bgColor: *background
+        bgColor: default
         sorterColor: *cyan
     xray:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       cursorColor: *selection
       graphicColor: *blue
       showIcons: false
@@ -88,7 +88,7 @@ k9s:
       valueColor: *foreground
     logs:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       indicator:
         fgColor: *foreground
         bgColor: default
@@ -96,7 +96,7 @@ k9s:
         toggleOffColor: *comment
     help:
       fgColor: *foreground
-      bgColor: *background
+      bgColor: default
       keyColor: *magenta
       numKeyColor: *cyan
       sectionColor: *blue

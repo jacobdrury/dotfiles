@@ -1,0 +1,47 @@
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
+
+set -g prefix C-s
+
+# Terminal capabilities
+set -g default-terminal "tmux-256color"
+set -as terminal-features ",xterm-ghostty:RGB"
+
+# Usability
+set -g mouse on
+set -g history-limit 100000
+set -g set-clipboard on
+
+# Start window and pane numbering at 1 and keep it contiguous.
+set -g base-index 1
+setw -g pane-base-index 1
+set -g renumber-windows on
+
+# Messages / prompts — Tokyo Night (replace default yellow bar)
+set -g message-style "bg={{ .appearance.selection }},fg={{ .appearance.foreground }},fill={{ .appearance.selection }}"
+set -g message-command-style "bg={{ .appearance.selection }},fg={{ index .appearance.ansi 4 }},fill={{ .appearance.selection }}"
+set -g display-time 2000
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'vaaleyard/tmux-dotbar'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# tmux-dotbar — Tokyo Night (from .chezmoidata/shared.toml)
+set -g @tmux-dotbar-bg "{{ .appearance.background }}"
+set -g @tmux-dotbar-fg "{{ index .appearance.ansi 8 }}"
+set -g @tmux-dotbar-fg-current "{{ .appearance.foreground }}"
+set -g @tmux-dotbar-fg-session "{{ index .appearance.ansi 7 }}"
+set -g @tmux-dotbar-fg-prefix "{{ index .appearance.ansi 5 }}"
+
+# resurrect — avoid C-s (prefix) and r (reload)
+set -g @resurrect-save 'S'
+set -g @resurrect-restore 'R'
+
+# continuum — auto-save + restore last session on tmux start
+set -g @continuum-restore 'on'
+set -g @continuum-save-interval '15'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.config/tmux/plugins/tpm/tpm'
