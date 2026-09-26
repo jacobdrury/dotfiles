@@ -7,7 +7,7 @@ $username\
 $hostname\
 $localip\
 $directory\
-$git_branch\
+${custom.git_branch}\
 $git_commit\
 $git_state\
 $git_metrics\
@@ -163,11 +163,31 @@ format = '[$symbol($version )]($style)'
 symbol = " "
 
 [git_branch]
+disabled = true
 format = '[$symbol$branch(:$remote_branch)]($style) '
 symbol = " "
 
+[custom.git_branch]
+command = '''git branch --show-current | sed -E -e 's#^([^/]+/[[:alnum:]]+-[[:digit:]]+)-.+$#\1#' -e 's#^jacobdrury/#jd/#' '''
+format = '[$symbol$output]($style) '
+style = "bold purple"
+symbol = " "
+when = true
+
 [git_commit]
 tag_symbol = '  '
+
+[git_status]
+format = '([$modified$worktree_deleted$untracked$staged$index_deleted$renamed$ahead_behind]($style) )'
+modified = '${count} '
+worktree_deleted = '${count} '
+untracked = '${count} '
+staged = '[${count}](bold green) '
+index_deleted = '[${count}](bold green) '
+renamed = '[󰑕${count}](bold green) '
+ahead = '${count}'
+behind = '${count}'
+diverged = '${ahead_count} ${behind_count}'
 
 [golang]
 format = '[$symbol($version )]($style)'
