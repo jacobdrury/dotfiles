@@ -11,6 +11,10 @@ Default to Go when choosing a language. Use another language when the repository
 already uses it, the user requests it, or it is materially better suited to the
 task.
 
+When writing Go, prefer grouped `const`, `var`, and `type` declarations when
+they make the code clearer, especially for related declarations. Keep standalone
+declarations when grouping would add noise.
+
 When Modern Go Guidelines produces no applicable change, do not mention it in
 commentary or the final response. Mention it only when its guidance materially
 changes the implementation or the user explicitly asks about it.
