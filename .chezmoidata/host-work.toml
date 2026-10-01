@@ -1,6 +1,12 @@
 [hosts."Pulsar-MacBook-Pro"]
     is_work = true
     font_size = 16
+    direnv_whitelist = [
+        "~/Dev/frm/",
+        "~/Dev/infra-connect/",
+        "~/Dev/aws-infra/",
+        "~/Dev/fatigue-meter-infrastructure/",
+    ]
 
 [hosts."Pulsar-MacBook-Pro".git]
     email = "jacob.drury@pulsarinformatics.com"

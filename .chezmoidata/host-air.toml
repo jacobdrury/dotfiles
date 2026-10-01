@@ -1,6 +1,7 @@
 [hosts."Jacobs-MacBook-Air"]
     is_work = false
     font_size = 14
+    direnv_whitelist = []
 
 [hosts."Jacobs-MacBook-Air".git]
     email = "jacobdrury75@gmail.com"

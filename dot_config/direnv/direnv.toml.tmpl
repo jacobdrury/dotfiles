@@ -1,0 +1,3 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
+[whitelist]
+prefix = {{ $host.direnv_whitelist | toJson }}
