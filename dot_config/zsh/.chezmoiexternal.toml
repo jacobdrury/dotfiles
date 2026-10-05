@@ -1,0 +1,17 @@
+# renovate: datasource=git-refs depName=zsh-users/zsh-autosuggestions packageName=https://github.com/zsh-users/zsh-autosuggestions versioning=git
+["plugins/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+    revision = "85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5"
+
+# renovate: datasource=git-refs depName=zsh-users/zsh-history-substring-search packageName=https://github.com/zsh-users/zsh-history-substring-search versioning=git
+["plugins/zsh-history-substring-search"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-history-substring-search.git"
+    revision = "a0bdb0d47dbaba31dba2db7af8c48a5d9c74049a"
+
+# renovate: datasource=git-refs depName=zdharma-continuum/fast-syntax-highlighting packageName=https://github.com/zdharma-continuum/fast-syntax-highlighting versioning=git
+["plugins/fast-syntax-highlighting"]
+    type = "git-repo"
+    url = "https://github.com/zdharma-continuum/fast-syntax-highlighting.git"
+    revision = "4672ad5dd9ad68a7effc1476d65afb7c584ce2b3"

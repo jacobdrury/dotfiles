@@ -1,28 +1,20 @@
 # =========================================================
-# Plugins
+# Plugins (managed by chezmoi externals; see .chezmoiexternal.toml)
 # =========================================================
 
 ZPLUGINDIR="${ZDOTDIR:-$HOME/.config/zsh}/plugins"
 
-_zplugin_load() {
-  local plugin_path="${ZPLUGINDIR}/${2}"
-  if [[ ! -d "$plugin_path" ]]; then
-    mkdir -p "$ZPLUGINDIR"
-    echo "Installing ${2}..."
-    git clone --depth=1 "https://github.com/${1}/${2}" "$plugin_path" \
-      || { echo "ERROR: failed to install ${2}" >&2; return 1; }
+_zplugin_source() {
+  local plugin_path="${ZPLUGINDIR}/${1}"
+  local plugin_file="${plugin_path}/${1}.plugin.zsh"
+  if [[ ! -f "$plugin_file" ]]; then
+    echo "ERROR: zsh plugin missing: ${plugin_file}" >&2
+    echo "Run: chezmoi apply" >&2
+    return 1
   fi
-  source "${plugin_path}/${2}.plugin.zsh"
+  source "$plugin_file"
 }
 
-zplugin-update() {
-  local dir
-  for dir in "${ZPLUGINDIR}"/*/; do
-    echo "Updating ${dir:t}..."
-    git -C "$dir" pull --ff-only
-  done
-}
-
-_zplugin_load zsh-users zsh-autosuggestions
-_zplugin_load zsh-users zsh-history-substring-search
-_zplugin_load zdharma-continuum fast-syntax-highlighting
+_zplugin_source zsh-autosuggestions
+_zplugin_source zsh-history-substring-search
+_zplugin_source fast-syntax-highlighting

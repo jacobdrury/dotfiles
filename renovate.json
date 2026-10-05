@@ -1,0 +1,55 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "schedule": [
+    "before 6am on monday"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "proto": {
+    "managerFilePatterns": [
+      "**/.prototools",
+      "**/dot_prototools"
+    ]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update pinned chezmoi git-repo externals",
+      "managerFilePatterns": [
+        "/(^|/)\\.chezmoiexternal\\.toml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>git-refs) depName=(?<depName>\\S+) packageName=(?<packageName>\\S+) versioning=(?<versioning>\\S+)\\s+\\[\"[^\"]+\"\\]\\s+type = \"git-repo\"\\s+url = \"[^\"]+\"\\s+revision = \"(?<currentDigest>[0-9a-f]{40})\""
+      ],
+      "currentValueTemplate": "master"
+    },
+    {
+      "customType": "regex",
+      "description": "Update # renovate: annotated version pins in chezmoi scripts",
+      "managerFilePatterns": [
+        "/(^|/)run_onchange_.*\\.tmpl$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+) depName=(?<depName>\\S+)(?: packageName=(?<packageName>\\S+))?(?: versioning=(?<versioning>\\S+))?\\n\\w+=\"(?<currentValue>[^\"]+)\""
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Group zsh plugin digest bumps",
+      "matchDatasources": [
+        "git-refs"
+      ],
+      "matchPackageNames": [
+        "zsh-users/zsh-autosuggestions",
+        "zsh-users/zsh-history-substring-search",
+        "zdharma-continuum/fast-syntax-highlighting"
+      ],
+      "groupName": "zsh plugins"
+    }
+  ]
+}
