@@ -19,6 +19,14 @@ When Modern Go Guidelines produces no applicable change, do not mention it in
 commentary or the final response. Mention it only when its guidance materially
 changes the implementation or the user explicitly asks about it.
 
+## DRY principles
+
+Follow DRY (Don't Repeat Yourself): reuse existing code and keep shared logic
+and knowledge in one authoritative place. Consolidate duplication when it
+represents the same behavior or rule, but avoid abstractions for code that only
+looks similar or might be reused later. Prefer a small, clear abstraction when
+it makes changes easier to apply consistently.
+
 ## Shell commands
 
 Use RTK for shell commands. Prefix commands with `rtk` unless an installed RTK
