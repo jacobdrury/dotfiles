@@ -1,11 +1,12 @@
 ---
 name: unslop
 description: Cut AI tells from any writing. Must always apply.
+alwaysApply: true
 ---
 
 # Unslop
 
-Edit text to remove AI patterns. Scan for the patterns below, then rewrite. Preserve meaning and match the intended tone.
+Apply to every user-facing reply and any prose you write. Scan for the patterns below, then rewrite. Preserve meaning and match the intended tone.
 
 ## Patterns to detect and fix
 
