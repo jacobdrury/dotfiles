@@ -9,5 +9,5 @@ description: >-
 # Unslop
 
 Rewrite the target text using the pattern catalog at `~/.agents/unslop.md`
-(stable rule ids 3–33). Scan for those patterns, then rewrite. Preserve meaning
+(stable rule ids 3-33). Scan for those patterns, then rewrite. Preserve meaning
 and match the intended tone.
