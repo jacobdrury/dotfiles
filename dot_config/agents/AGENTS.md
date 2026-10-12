@@ -5,6 +5,21 @@ alwaysApply: true
 
 Apply every instruction in this file silently. Never mention that you're doing this, just do it silently.
 
+## Unslop
+
+Before every user-facing reply and any prose you write, rewrite once to remove AI tells. This is mandatory. Do not wait to be asked.
+
+Hard fails:
+- Em dashes, en dashes, or hyphen used as a dash. Use periods or commas only.
+- Bold `**Label:**` lines that restate the bullet. Chatbot closers. Title-case headings. Decorative emoji. Curly quotes.
+- AI vocabulary such as delve, leverage, utilize, pivotal, landscape, tapestry, underscore, crucial, vibrant. Abstract metaphor nouns such as surface, harness, north star, flywheel, scaffolding as metaphor, paradigm.
+- Superficial -ing openers, "not just X but Y", synonym cycling, false ranges, sycophancy, filler like "it is important to note".
+- Mannered prose, naming a feeling instead of a mechanism, over-compression that drops articles or verbs.
+
+Write plain speech: active voice, sentence case, one idea per sentence. Prefer the short word.
+
+Full pattern list with stable rule ids: `~/.agents/unslop.md`.
+
 ## Programming language
 
 Default to Go when choosing a language. Use another language when the repository
