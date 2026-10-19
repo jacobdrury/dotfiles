@@ -1,14 +1,14 @@
-[hosts."Jacobs-MacBook-Air"]
+[hosts."Jacobs-Air"]
     is_work = false
     font_size = 14
     direnv_whitelist = []
 
-[hosts."Jacobs-MacBook-Air".git]
+[hosts."Jacobs-Air".git]
     email = "jacobdrury75@gmail.com"
     sign_commits = false
     signing_key = ""
     rewrite_gitlab_ssh = false
 
-[hosts."Jacobs-MacBook-Air".ghostty]
+[hosts."Jacobs-Air".ghostty]
     window_height = 20
     window_width = 120
