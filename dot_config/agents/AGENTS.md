@@ -44,6 +44,9 @@ it makes changes easier to apply consistently.
 
 ## Shell commands
 
+When suggesting commands for me to run, use my `k` alias for `kubectl`, for
+example `k get pods`.
+
 Use RTK for shell commands. Prefix commands with `rtk` unless an installed RTK
 hook rewrites them automatically.
 
