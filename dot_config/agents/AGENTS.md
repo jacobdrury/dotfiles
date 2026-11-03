@@ -67,3 +67,10 @@ standard tools when exact compatibility is required.
 ## SQL
 
 Use lowercase unless it will cause a syntax error.
+
+## FRM engineering skills
+
+When working in the `pulsarinformatics/frm` repository, read
+`~/.config/agents/repos/frm/issue-tracker.md` before issue tracker operations,
+`~/.config/agents/repos/frm/triage-labels.md` before triage, and
+`~/.config/agents/repos/frm/domain.md` before domain exploration.
