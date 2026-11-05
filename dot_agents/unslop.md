@@ -1,7 +1,7 @@
 # Unslop
 
 Reference catalog for the always-on gate in `~/.config/agents/AGENTS.md`.
-Use when rewriting prose on request, or when another skill cites a rule id.
+Apply to all prose on every task, including replies and progress updates.
 
 Scan for the patterns below, then rewrite. Preserve meaning and match the intended tone.
 

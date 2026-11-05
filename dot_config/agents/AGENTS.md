@@ -7,7 +7,12 @@ Apply every instruction in this file silently. Never mention that you're doing t
 
 ## Unslop
 
-Before every user-facing reply and any prose you write, rewrite once to remove AI tells. This is mandatory. Do not wait to be asked.
+Apply the unslop skill on every task. At the start of each conversation, read
+`~/.agents/skills/unslop/SKILL.md` and its pattern catalog, `~/.agents/unslop.md`.
+Before sending any reply or saving any prose, scan it against the catalog and
+rewrite every applicable pattern. This includes progress updates, final replies,
+plans, documentation, code comments, commit messages, and PR text. Do this without
+waiting for the user to ask. Preserve technical meaning and required syntax.
 
 Hard fails:
 - Em dashes, en dashes, or hyphen used as a dash. Use periods or commas only.
@@ -19,6 +24,16 @@ Hard fails:
 Write plain speech: active voice, sentence case, one idea per sentence. Prefer the short word.
 
 Full pattern list with stable rule ids: `~/.agents/unslop.md`.
+
+## Dotfiles and chezmoi
+
+I manage dotfiles with chezmoi. Before editing a dotfile, agent instruction file,
+skill, or other personal configuration, use `chezmoi source-path <path>` to check
+whether chezmoi manages it. For managed files, read the source repository's
+`AGENTS.md` and edit the chezmoi source. Merge any destination-only changes into
+the source first. Review `chezmoi diff`, then apply only the affected paths with
+`chezmoi apply <path>`. Verify the deployed files match the source. Follow this
+workflow automatically without waiting for a reminder.
 
 ## Programming language
 
