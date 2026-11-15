@@ -32,6 +32,8 @@ cask "cursor"     # editor and coding agent
 # Apps
 # =========================================================
 
+tap "ardia-browser/tap"
+cask "ardia"      # Arc/Dia-style Chromium; agent skills via run_onchange
 cask "1password"
 cask "1password-cli"
 cask "discord"

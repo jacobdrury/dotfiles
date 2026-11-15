@@ -2,19 +2,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Re-run when the Brewfile changes.
+# Re-run when the Brewfile or Homebrew trust list changes.
 # {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+# {{ include "dot_config/homebrew/trust.json" | sha256sum }}
 
 # Read from source state: this is a `before` script, so ~/.config/homebrew
 # may not exist yet on first apply.
-brewfile="{{ .chezmoi.sourceDir }}/dot_config/homebrew/Brewfile"
+source_homebrew="{{ .chezmoi.sourceDir }}/dot_config/homebrew"
+brewfile="${source_homebrew}/Brewfile"
+trust_src="${source_homebrew}/trust.json"
+trust_dst="${XDG_CONFIG_HOME:-$HOME/.config}/homebrew/trust.json"
 
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrew is not installed; install it first: https://brew.sh" >&2
   exit 1
 fi
 
+# Homebrew 7 only loads third-party casks after trust.json allows them.
+# Apply trust from source before brew bundle so a fresh machine can install Ardia.
+mkdir -p "$(dirname "${trust_dst}")"
+cp "${trust_src}" "${trust_dst}"
+
 echo "Running brew bundle from ${brewfile}..."
 brew bundle --no-upgrade --file="${brewfile}"
 echo "brew bundle complete."
 {{- end -}}
+

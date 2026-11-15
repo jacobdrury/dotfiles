@@ -1,0 +1,22 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Install ardia agent skills once the CLI exists.
+# Ardia itself installs and updates ~/.local/bin/ardia (Settings › Advanced);
+# this script only places the skill for Codex/Cursor.
+# Re-run when the Brewfile changes (ardia cask) or this script does.
+# {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+
+export PATH="${HOME}/.local/bin:${PATH}"
+
+if ! command -v ardia >/dev/null 2>&1; then
+  echo "ardia CLI not found (Ardia installs it when you enable Settings › Advanced › Let the ardia command control Ardia). Skipping skill install."
+  exit 0
+fi
+
+# Codex and Cursor both resolve to ~/.agents/skills here (Cursor skills are a symlink).
+echo "Installing ardia agent skills ($(ardia --version))..."
+ardia skills install --target codex --target cursor
+echo "ardia skills installed."
+{{- end -}}
