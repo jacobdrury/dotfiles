@@ -9,11 +9,19 @@
 # Tradeoff: editing .prototools in place does not refresh the current shell.
 # Run `proto_activate_uncached` when an immediate manual refresh is needed.
 
-eval "$(proto activate zsh --no-init)"
+proto_init=$(
+  # Generate hooks from home if the shell was left in a removed directory.
+  [[ . -ef $PWD ]] || builtin cd -q -- "$HOME" || exit
+  proto activate zsh --no-init
+) || return
+eval "$proto_init"
+unset proto_init
 precmd_functions=(${precmd_functions:#proto_activate})
 functions[proto_activate_uncached]=$functions[proto_activate]
 
 proto_activate() {
+  [[ . -ef $PWD ]] || return 0
+
   local config_dir=$PWD
   while [[ $config_dir != / && ! -f $config_dir/.prototools ]]; do
     config_dir=${config_dir:h}

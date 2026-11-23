@@ -86,5 +86,9 @@ source "$ZDOTDIR/proto.zsh"
 # Starship
 eval "$(starship init zsh)"
 
-# direnv
-eval "$(direnv hook zsh)"
+# The proto shim needs a valid working directory even to generate the hook.
+if [[ -x /opt/homebrew/bin/direnv ]]; then
+  eval "$(/opt/homebrew/bin/direnv hook zsh)"
+else
+  eval "$(direnv hook zsh)"
+fi
