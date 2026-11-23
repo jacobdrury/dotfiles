@@ -1,4 +1,5 @@
 {{- $host := index .hosts .chezmoi.hostname -}}
+{{- if not (hasKey $host.t3 "preferences") -}}
 #!/bin/sh
 
 settings="$HOME/.t3/userdata/settings.json"
@@ -24,3 +25,4 @@ if [ -f "$client_settings" ]; then
   set_string "$client_settings" fontFamilyTerminal "$font_family"
   plutil -replace fontSizeTerminal -integer "$font_size" "$client_settings"
 fi
+{{- end }}

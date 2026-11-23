@@ -12,3 +12,6 @@
 [hosts."Jacobs-Air".ghostty]
     window_height = 20
     window_width = 120
+
+[hosts."Jacobs-Air".t3]
+    cask = "t3-code"

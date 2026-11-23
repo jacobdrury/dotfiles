@@ -1,3 +1,4 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
 # =========================================================
 # Required by configs (shell, editor, prompt, etc.)
 # =========================================================
@@ -44,4 +45,10 @@ cask "google-chrome"
 cask "raycast"
 cask "rectangle"
 cask "spotify"
-cask "t3-code"
+{{ if hasKey $host.t3 "existing_app" -}}
+# Keep an existing T3 Code installation so its updater can continue managing it.
+cask {{ $host.t3.cask | quote }} unless File.directory?({{ $host.t3.existing_app | quote }}) &&
+  !File.directory?(File.join(ENV.fetch("HOMEBREW_PREFIX"), "Caskroom", {{ $host.t3.cask | quote }}))
+{{ else -}}
+cask {{ $host.t3.cask | quote }}
+{{ end -}}

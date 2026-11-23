@@ -14,7 +14,7 @@ Everything else is installed by `chezmoi apply` via Homebrew Bundle.
 
 ## Homebrew packages
 
-Packages are declared in [`~/.config/homebrew/Brewfile`](dot_config/homebrew/Brewfile), grouped into:
+Packages are declared in [`~/.config/homebrew/Brewfile`](dot_config/homebrew/Brewfile.tmpl), grouped into:
 
 1. **Required by configs** — shell, prompt, editor aliases
 2. **Dev tools** — `gh`, `git`

@@ -3,13 +3,9 @@
 set -euo pipefail
 
 # Re-run when the Brewfile or Homebrew trust list changes.
-# {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
 # {{ include "dot_config/homebrew/trust.json" | sha256sum }}
 
-# Read from source state: this is a `before` script, so ~/.config/homebrew
-# may not exist yet on first apply.
 source_homebrew="{{ .chezmoi.sourceDir }}/dot_config/homebrew"
-brewfile="${source_homebrew}/Brewfile"
 trust_src="${source_homebrew}/trust.json"
 trust_dst="${XDG_CONFIG_HOME:-$HOME/.config}/homebrew/trust.json"
 
@@ -23,8 +19,11 @@ fi
 mkdir -p "$(dirname "${trust_dst}")"
 cp "${trust_src}" "${trust_dst}"
 
-echo "Running brew bundle from ${brewfile}..."
-brew bundle --no-upgrade --file="${brewfile}"
+# The managed Brewfile may not exist yet on first apply.
+echo "Running brew bundle..."
+brew bundle --no-upgrade --file=- <<'BREWFILE'
+{{ includeTemplate "dot_config/homebrew/Brewfile.tmpl" . | trimSuffix "\n" }}
+BREWFILE
 echo "brew bundle complete."
 {{- end -}}
 

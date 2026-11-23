@@ -17,7 +17,8 @@
       "**/*.md.tmpl"
     ],
     "Ruby": [
-      "**/Brewfile"
+      "**/Brewfile",
+      "**/Brewfile.tmpl"
     ],
     "Shell Script": [
       "**/*.sh.tmpl",

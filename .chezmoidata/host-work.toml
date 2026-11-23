@@ -17,3 +17,561 @@
 [hosts."Pulsar-MacBook-Pro".ghostty]
     window_height = 30
     window_width = 154
+
+[hosts."Pulsar-MacBook-Pro".t3]
+    cask = "t3-code@nightly"
+    existing_app = "/Applications/T3 Code (Nightly).app"
+
+[hosts."Pulsar-MacBook-Pro".t3.preferences]
+settings = '''
+{
+  "providerModelPreferences": {
+    "codex": {
+      "hiddenModels": [
+        "gpt-5.3-codex",
+        "gpt-5.2",
+        "gpt-5.4",
+        "gpt-5.5",
+        "gpt-5.4-mini",
+        "gpt-5.6-terra",
+        "gpt-5.6-sol",
+        "gpt-5.6-luna",
+        "gpt-6-sol",
+        "gpt-6.1-sol",
+        "gpt-6-astra"
+      ],
+      "modelOrder": [
+        "gpt-6.2-sol",
+        "gpt-6.2-astra",
+        "gpt-6.1-terra",
+        "gpt-6-luna",
+        "gpt-6.1-sol",
+        "gpt-6-astra",
+        "gpt-6-sol",
+        "gpt-5.6-luna",
+        "gpt-5.6-terra",
+        "gpt-5.6-sol"
+      ]
+    }
+  },
+  "storageCleanup": {
+    "worktreeAfterDays": 8,
+    "worktreeSettledAfterDays": 3,
+    "worktreeOnDelete": true,
+    "worktreeUnchanged": true
+  },
+  "fastWorktreeCheckout": true,
+  "defaultAutoPull": true,
+  "projectScriptOverrides": {
+    "a3cf5311-e1a7-466c-8fcc-4128d7ebaed8": [
+      {
+        "id": "proto-install",
+        "name": "Proto Install",
+        "command": "if [[ \"$PWD\" != \"$T3CODE_PROJECT_ROOT\" ]]; then ln -sfn \"$T3CODE_PROJECT_ROOT/.env.local\" \".env.local\"; fi && proto install --yes </dev/null && source ~/.zshrc && bun install && frm codegen backend",
+        "icon": "configure",
+        "runOnWorktreeCreate": true
+      }
+    ]
+  },
+  "defaultModelSelection": {
+    "instanceId": "codex",
+    "model": "gpt-6.1-sol"
+  },
+  "projectSettingsOverrides": {
+    "a3cf5311-e1a7-466c-8fcc-4128d7ebaed8": {
+      "defaultThreadEnvMode": "worktree",
+      "defaultProjectScripts": [
+        {
+          "id": "proto-install",
+          "name": "Proto Install",
+          "command": "if [[ \"$PWD\" != \"$T3CODE_PROJECT_ROOT\" ]]; then ln -sfn \"$T3CODE_PROJECT_ROOT/.env.local\" \".env.local\"; fi && proto install --yes </dev/null && source ~/.zshrc && bun install && frm codegen backend",
+          "icon": "configure",
+          "runOnWorktreeCreate": true
+        }
+      ]
+    }
+  },
+  "projectSettingsFolded": true,
+  "idleCompaction": "onReturn",
+  "sidebarAutoSettleKeepPullRequests": true,
+  "defaultTheme": __T3_THEME__,
+  "defaultThemeSetAt": "2026-09-11T03:00:53Z",
+  "addProjectBaseDirectory": "~/Dev",
+  "textGenerationModelSelection": {
+    "instanceId": "codex",
+    "model": "gpt-6-luna"
+  },
+  "removeAgentCreditsOnMerge": true,
+  "reviewGuidesEnabled": true,
+  "pullRequestMergeMethod": "rebase",
+  "providerInstances": {
+    "codex": {
+      "driver": "codex",
+      "accentColor": "#2563eb",
+      "enabled": true,
+      "config": {
+        "customModels": [],
+        "binaryPath": "codex",
+        "homePath": "",
+        "shadowHomePath": ""
+      }
+    },
+    "claudeAgent": {
+      "driver": "claudeAgent",
+      "enabled": true,
+      "config": {
+        "customModels": [],
+        "binaryPath": "claude",
+        "homePath": "",
+        "launchArgs": "",
+        "autoCompactWindow": ""
+      }
+    },
+    "cursor": {
+      "driver": "cursor",
+      "accentColor": "#7c3aed",
+      "enabled": true,
+      "config": {
+        "apiEndpoint": "",
+        "binaryPath": "agent",
+        "customModels": []
+      }
+    }
+  },
+  "offeredSourceControlProviders": {
+    "github": false,
+    "gitlab": true
+  }
+}
+'''
+
+client_settings = '''
+{"notificationMode":"notifications-and-sound","inAppNotificationsEnabled":true,"diffColorScheme":"red-green","chatWidth":"comfortable","effortDisplay":"label","loadBalancingEnabled":false,"loadBalancingWeights":{},"appearanceContrast":100,"panelAnimationDurationMs":0,"browserDefaultViewport":{"_tag":"fill"},"browserDefaultZoomFactor":1,"browserDefaultAppearance":"system","browserRecordingFrameRate":30,"browserRecordingShowKeyPresses":false,"browserRecordingShowMousePresses":false,"browserLinkTarget":"system","browserSearchEngine":"duckduckgo","browserCustomSearchUrl":"","browserAutoShowFloatingPreview":true,"browserProfiles":[],"browserDefaultProfileId":"default","confirmQuit":"direct","confirmThreadArchive":false,"confirmTerminalClose":true,"confirmThreadDelete":true,"confirmThreadUnpin":false,"diffFilesCollapsed":false,"diffIgnoreWhitespace":true,"diffLayout":"split","environmentIdentificationMode":"artwork","glassOpacity":80,"fontSizeInterface":16,"fontSizePrompt":14,"fontSizeCode":13,"fontSizeTerminal":__T3_FONT_SIZE__,"fontFamilyCode":"","fontFamilyComposer":"","fontFamilySans":"","fontFamilyTerminal":__T3_FONT_FAMILY__,"fontSmoothing":true,"onboardingCompletedAt":"2026-09-11T02:22:28.367Z","persistComposerContextStrip":false,"favorites":[],"providerModelPreferences":{"codex":{"hiddenModels":["gpt-5.3-codex","gpt-5.2","gpt-5.4","gpt-5.5","gpt-5.4-mini","gpt-5.6-terra","gpt-5.6-sol","gpt-5.6-luna","gpt-6-sol"],"modelOrder":["gpt-6-luna","gpt-6.1-sol","gpt-6-astra","gpt-6-sol","gpt-5.6-luna","gpt-5.6-terra","gpt-5.6-sol"]}},"pullRequestMergeMethodOverrides":{},"pullRequestLinksOpenInApp":false,"composerRichTextEnabled":true,"sendShortcut":"enter","followUpBehavior":"queue","proactivePanelsEnabled":false,"showSkillsInSlashMenu":true,"boringSidebarEnabled":false,"boringSidebarMultilineRows":false,"toolCallVisibility":"showAll","screenReaderAnnouncements":"status","screenReaderWindowTitle":false,"threadDetailsUsageEnabled":false,"threadDetailsItems":{"context":true,"scripts":false,"gitActions":false,"changes":false,"servers":false,"automations":false,"usage":true,"openIn":false},"sidebarWorkingShelfEnabled":true,"sidebarProjectGroupingMode":"repository","sidebarProjectGroupingOverrides":{},"sidebarProjectSortOrder":"manual","sidebarThreadSortOrder":"updated_at","timestampFormat":"locale","voiceMicrophone":"","voiceMicrophones":[{"kind":"default"},{"kind":"device","deviceId":"aee64d3225a368f42682599071d72ca019b85684c5719d83cdba7b6e13d2f2c0","label":"Scarlett Solo USB (1235:8211)"},{"kind":"device","deviceId":"0305ed646a3ceb13cfdeddd14c27b8c5ef24c94fd8191e2fe3eb03e8d158775b","label":"HD Pro Webcam C920 (046d:0892)"},{"kind":"device","deviceId":"f8bc6dd3139de7954098695b500eed0255053e626513c2edd28e3a3a22f6c801","label":"MacBook Pro Microphone (Built-in)"},{"kind":"device","deviceId":"ca9832159f1eb20472c4bbe9eacf5066039216fc7f6014c318049f176e406dd9","label":"Microsoft Teams Audio Device (Virtual)"}],"voiceShortcutMode":"auto","speechLanguage":"auto","speechTranslateToEnglish":false,"speechCustomWords":[],"speechSilenceFiltering":true,"speechStreaming":true,"speechRemoveFillerWords":true,"speechPostProcessingPrompt":{"mode":"default","customInstructions":""},"speechCorrectionWord":"","language":"en","snapShotEnabled":false,"snapShotIncludeAccessibility":true,"snapShotShortcut":{"kind":"both-shift-keys"},"snapShotPlaySound":true,"snapShotSound":"soft-pop","snapShotFlash":true,"snapShotAnimations":true,"wordWrap":true,"mathRenderingEnabled":false}
+'''
+
+desktop_settings = '''
+{"mainWindowBounds":{"x":996,"y":285,"width":1917,"height":1405},"updateChannelConfiguredByUser":true}
+'''
+
+keybindings = '''
+[
+  {
+    "key": "f6",
+    "command": "workspace.focusNext"
+  },
+  {
+    "key": "shift+f6",
+    "command": "workspace.focusPrevious"
+  },
+  {
+    "key": "mod+f6",
+    "command": "workspace.focusNext"
+  },
+  {
+    "key": "mod+shift+f6",
+    "command": "workspace.focusPrevious"
+  },
+  {
+    "key": "mod+shift+d",
+    "command": "composer.dictation",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+f",
+    "command": "preview.find",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+shift+b",
+    "command": "threadPanel.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+t",
+    "command": "rightPanel.new",
+    "when": "rightPanelOpen && !terminalFocus"
+  },
+  {
+    "key": "mod+shift+t",
+    "command": "view.reopenClosed"
+  },
+  {
+    "key": "alt+arrowup",
+    "command": "thread.editQueuedMessage",
+    "when": "composerFocus"
+  },
+  {
+    "key": "mod+enter",
+    "command": "composer.sendAlternate",
+    "when": "composerFocus && turnRunning"
+  },
+  {
+    "key": "mod+enter",
+    "command": "composer.sendBackground",
+    "when": "composerFocus && draftThreadRoute"
+  },
+  {
+    "key": "mod+alt+enter",
+    "command": "composer.sendBackground",
+    "when": "composerFocus && draftThreadRoute"
+  },
+  {
+    "key": "mod+alt+enter",
+    "command": "composer.sendAndNewThread",
+    "when": "composerFocus && !draftThreadRoute"
+  },
+  {
+    "key": "mod+f",
+    "command": "chat.find",
+    "when": "!terminalFocus && !previewFocus"
+  },
+  {
+    "key": "mod+d",
+    "command": "terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "mod+n",
+    "command": "terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "mod+w",
+    "command": "terminal.close",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "mod+d",
+    "command": "diff.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+k",
+    "command": "commandPalette.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+n",
+    "command": "chat.new",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+o",
+    "command": "chat.new",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+n",
+    "command": "chat.newLocal",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+m",
+    "command": "modelPicker.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+o",
+    "command": "editor.openFavorite"
+  },
+  {
+    "key": "mod+shift+[",
+    "command": "thread.previous"
+  },
+  {
+    "key": "mod+shift+]",
+    "command": "thread.next"
+  },
+  {
+    "key": "mod+1",
+    "command": "thread.jump.1"
+  },
+  {
+    "key": "mod+2",
+    "command": "thread.jump.2"
+  },
+  {
+    "key": "mod+3",
+    "command": "thread.jump.3"
+  },
+  {
+    "key": "mod+4",
+    "command": "thread.jump.4"
+  },
+  {
+    "key": "mod+5",
+    "command": "thread.jump.5"
+  },
+  {
+    "key": "mod+6",
+    "command": "thread.jump.6"
+  },
+  {
+    "key": "mod+7",
+    "command": "thread.jump.7"
+  },
+  {
+    "key": "mod+8",
+    "command": "thread.jump.8"
+  },
+  {
+    "key": "mod+9",
+    "command": "thread.jump.9"
+  },
+  {
+    "key": "mod+1",
+    "command": "modelPicker.jump.1",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+2",
+    "command": "modelPicker.jump.2",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+3",
+    "command": "modelPicker.jump.3",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+4",
+    "command": "modelPicker.jump.4",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+5",
+    "command": "modelPicker.jump.5",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+6",
+    "command": "modelPicker.jump.6",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+7",
+    "command": "modelPicker.jump.7",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+8",
+    "command": "modelPicker.jump.8",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+9",
+    "command": "modelPicker.jump.9",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "terminal.toggle"
+  },
+  {
+    "key": "mod+b",
+    "command": "sidebar.toggle"
+  },
+  {
+    "key": "mod+alt+b",
+    "command": "rightPanel.toggle"
+  },
+  {
+    "key": "mod+shift+d",
+    "command": "terminal.splitVertical",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "mod+shift+j",
+    "command": "preview.toggle"
+  },
+  {
+    "key": "mod+r",
+    "command": "preview.refresh",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+l",
+    "command": "preview.focusUrl",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+=",
+    "command": "preview.zoomIn",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod++",
+    "command": "preview.zoomIn",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+-",
+    "command": "preview.zoomOut",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+0",
+    "command": "preview.resetZoom",
+    "when": "previewFocus"
+  },
+  {
+    "key": "mod+s",
+    "command": "composer.stash",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+p",
+    "command": "filePicker.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+f",
+    "command": "projectSearch.toggle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+alt+shift+t",
+    "command": "themeEditor.toggle"
+  },
+  {
+    "key": "mod+shift+s",
+    "command": "thread.settle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+p",
+    "command": "thread.pin",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+c",
+    "command": "thread.copyReference",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+w",
+    "command": "rightPanel.close",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+enter",
+    "command": "thread.steerQueuedMessage",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+h",
+    "command": "composer.host",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+e",
+    "command": "composer.effort",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+a",
+    "command": "composer.mode",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+x",
+    "command": "composer.workspace",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+g",
+    "command": "composer.branch",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+l",
+    "command": "composer.previousWorktree",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+k",
+    "command": "pullRequest.copyNumber",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+shift+arrowup",
+    "command": "modelPicker.previousProvider",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+shift+arrowdown",
+    "command": "modelPicker.nextProvider",
+    "when": "modelPickerOpen"
+  },
+  {
+    "key": "mod+[",
+    "command": "navigation.back",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+]",
+    "command": "navigation.forward",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+u",
+    "command": "usage.open",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+alt+a",
+    "command": "theme.select",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+alt+shift+a",
+    "command": "appearance.cycle",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "mod+z",
+    "command": "thread.undo",
+    "when": "!terminalFocus && !editableFocus"
+  },
+  {
+    "key": "c",
+    "command": "usage.cost",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "t",
+    "command": "usage.tokens",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "l",
+    "command": "usage.limits",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "mod+shift+1",
+    "command": "usage.period.day",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "mod+shift+2",
+    "command": "usage.period.week",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "mod+shift+3",
+    "command": "usage.period.month",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "mod+shift+4",
+    "command": "usage.period.quarter",
+    "when": "usagePageOpen"
+  },
+  {
+    "key": "mod+alt+n",
+    "command": "chat.newWithoutProject",
+    "when": "!terminalFocus"
+  }
+]
+'''

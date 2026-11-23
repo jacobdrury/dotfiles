@@ -6,7 +6,7 @@ set -euo pipefail
 # Ardia itself installs and updates ~/.local/bin/ardia (Settings › Advanced);
 # this script only places the skill for Codex/Cursor/Claude Code.
 # Re-run when the Brewfile changes (ardia cask) or this script does.
-# {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+# {{ includeTemplate "dot_config/homebrew/Brewfile.tmpl" . | sha256sum }}
 
 export PATH="${HOME}/.local/bin:${PATH}"
 

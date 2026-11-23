@@ -12,6 +12,14 @@ etc/
 # gh — auth state (may contain oauth tokens)
 .config/gh/hosts.yml
 
+{{- $host := index .hosts .chezmoi.hostname }}
+{{- if not (hasKey $host.t3 "preferences") }}
+.t3/userdata/settings.json
+.t3/userdata/client-settings.json
+.t3/userdata/desktop-settings.json
+.t3/userdata/keybindings.json
+{{- end }}
+
 # nvim — generated / local / ephemeral
 .config/nvim/lazy-lock.json
 .config/nvim/doc/tags

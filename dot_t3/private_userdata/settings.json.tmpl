@@ -1,0 +1,2 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
+{{ $host.t3.preferences.settings | replace "__T3_THEME__" (.appearance.t3_theme | toJson) -}}

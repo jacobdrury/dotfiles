@@ -1,0 +1,2 @@
+{{- $host := index .hosts .chezmoi.hostname -}}
+{{ $host.t3.preferences.client_settings | replace "__T3_FONT_FAMILY__" (.appearance.font_family | toJson) | replace "__T3_FONT_SIZE__" (toString $host.font_size) -}}
